@@ -3,6 +3,16 @@ import digitalio
 import setup
 import time
 
+# Temporal stuffs....
+# Adafruit HID keyboard misc
+from adafruit_hid.keyboard import Keyboard
+from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS
+from adafruit_hid.keycode import Keycode
+import usb_hid
+
+Kbd = Keyboard(usb_hid.devices)
+Layout = KeyboardLayoutUS(Kbd)
+
 '''
 ║ *- Inpin & Outpin are keyboard based														   ║
 ║	   KBD							 Pico													   ║
@@ -35,6 +45,15 @@ KeyTimeRegistries = []	# How long they have been pressed
 
 # Time registry pressed again
 KeySpamDelay = 0.1
+
+# Temporal key array thingy
+TempKeys = [
+	["m","o","n","l"],
+	["i","g","h","t"],
+	["w","a","s","e"],
+	["r",":","3"," "],
+	["x","U","O","."]
+]
 
 def SetupKeys() -> None:
 	"""Prepares keyboard IO pins and stores them into the loaded arrays"""
@@ -91,7 +110,7 @@ def ScanRoutine() -> None:
 				elif not (CurrXPos in KeysPressingEntries):
 					KeysJustPressedEntries.append(CurrXPos)
 					print("Just pressed "+str(CurrXPos)+", "+str(CurrYPos))
-
+					Layout.write(TempKeys[CurrYPos][CurrXPos])
 				# Check if key is in KeysPressingEntries
 				else:
 					# Continously effectuate action

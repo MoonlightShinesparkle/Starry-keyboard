@@ -15,11 +15,11 @@ from adafruit_hid.keycode import Keycode
 import keys
 
 # Keyboard and layout init
-Kbd = Keyboard(usb_hid.devices)
-Layout = KeyboardLayoutUS(Kbd)
+#Kbd = Keyboard(usb_hid.devices)
+#Layout = KeyboardLayoutUS(Kbd)
 
 keys.SetupKeys()
 
 while True:
 	keys.ScanRoutine()
-	time.sleep(0.001)
+	time.sleep(0.0005)
