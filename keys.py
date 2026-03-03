@@ -26,7 +26,7 @@ Layout = KeyboardLayoutUS(Kbd)
 
 # Keyboard output pins
 KeyboardOutputs = [
-	board.GP5, board.GP6, board.GP7, board.GP8
+	board.GP5, board.GP6, board.GP7, board.GP8, board.GP9
 ]
 
 # Keyboard input pints
@@ -48,11 +48,11 @@ KeySpamDelay = 0.1
 
 # Temporal key array thingy
 TempKeys = [
-	["m","o","n","l"],
-	["i","g","h","t"],
-	["w","a","s","e"],
-	["r",":","3"," "],
-	["x","U","O","."]
+	["m","o","n","l","i"],
+	["g","h","t","w","a"],
+	["s","e","r",":","3"],
+	[" ","n","y","U","O"],
+	[".","P","-","~","="]
 ]
 
 def SetupKeys() -> None:
