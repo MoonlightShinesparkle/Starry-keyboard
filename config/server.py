@@ -1,5 +1,5 @@
-import wifi
-import socketpool
+import wifi # type: ignore
+import socketpool # type: ignore
 import microcontroller
 import binascii
 from adafruit_httpserver import GET, Request, Response, Server, FileResponse, POST
