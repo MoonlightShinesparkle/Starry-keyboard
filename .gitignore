@@ -664,6 +664,7 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 *.vs/*
 *.vs
+*.vscode
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,python
 
