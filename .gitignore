@@ -662,6 +662,8 @@ FodyWeavers.xsd
 
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
+*.vs/*
+*.vs
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,python
 
