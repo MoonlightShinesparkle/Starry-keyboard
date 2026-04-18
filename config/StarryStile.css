@@ -1,0 +1,39 @@
+body {
+    
+        background-color: antiquewhite;
+    }
+
+
+header {
+    color: orange;
+}
+
+    p{
+        color: orange;
+    }
+
+    content{
+        color: orange;
+    }
+
+Content {
+    color: orange;
+}
+
+.contenedor1{
+    background-color:mediumslateblue;
+    padding: 35px;
+    color:hotpink;
+}
+
+.contenedor2 {
+    background-color: darkblue;
+    padding: 35px;
+    color: deepskyblue;
+}
+
+.contenedor3 {
+    background-color: gold;
+    padding: 35px;
+    color: goldenrod;
+}
