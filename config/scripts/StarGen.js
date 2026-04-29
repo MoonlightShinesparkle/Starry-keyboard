@@ -29,6 +29,7 @@ function CreateBackgroundStar() {
         : 1
 
     const div = CreateBaseStar();
+    div.backgroundColor = `rgba(255, 255, 255, ${1/(Modifier)/5})`
     div.style.left = `${Math.random() * 100}%`;
     div.style.animationDuration = `${(Math.random() * 5 + 2)*(1/Modifier)}s`;
     const size = Math.random() * 15 + 10;
