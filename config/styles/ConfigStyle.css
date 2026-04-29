@@ -24,6 +24,14 @@ body{
     z-index: -1;
 
 }
+.AbsBlock {
+    position: fixed;
+    height: 30px;
+    width: 30px;
+    background-image: url("https://static.wikitide.net/nullscapewiki/9/90/Probably_Improper_Speeded_Mart.gif");
+    background-size: cover;
+    pointer-events: none;
+}
 
 @keyframes moverArriba {
     0% {
@@ -36,5 +44,26 @@ body{
     100% {
         opacity: 0;
         transform: translateY(-100vh);
+    }
+}
+
+@keyframes Fade {
+    0% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+        width: 5px;
+        height: 5px;
+    }
+    100% {
+        opacity: 0;
+        width: 0%;
+        height: 0%;
+        rotate: 40deg;
+        transform: translateY(10px);
     }
 }

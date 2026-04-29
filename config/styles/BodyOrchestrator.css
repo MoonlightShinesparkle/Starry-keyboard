@@ -1,5 +1,5 @@
 :root{
-	--BackgroundWrapperColor: rgb(89, 19, 122);
+	--BackgroundWrapperColor: rgba(89, 19, 122, 0.43);
 	--SelectionColor: rgb(103, 19, 136);
 }
 
