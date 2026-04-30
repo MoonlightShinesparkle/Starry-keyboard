@@ -1,0 +1,18 @@
+ .hola{
+          width: 300px;
+       
+          background-color: #FFF4A3;
+    }
+
+.izq
+{
+     margin: left;
+    background-color: aquamarine;
+
+}
+
+.der
+{
+     margin: right;
+    background-color: aliceblue;
+}
