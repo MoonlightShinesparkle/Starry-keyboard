@@ -61,6 +61,14 @@ TempKeys : list[list[BaseKey]] = [
 	[NormalKey(Keycode.O),NormalKey(Keycode.U),NormalKey(Keycode.PERIOD),NormalKey(Keycode.EQUALS),NormalKey(Keycode.MINUS)]
 ]
 
+def JSONStringify() -> str:
+	Returnable : str = "{\"Keys\":["
+	for Line in TempKeys:
+		for Key in Line:
+			Returnable += Key.JSONParsed+","
+	Returnable = Returnable[:-1] + "]}"
+	return Returnable
+
 def SetupKeys() -> None:
 	"""Prepares keyboard IO pins and stores them into the loaded arrays"""
 
