@@ -59,65 +59,69 @@ td {
     cursor: pointer;
     overflow: hidden;
 
-    background: rgba(0, 0, 0, 0.3);
+    /* menos oscuro para que brillen más */
+    background: rgba(0, 0, 0, 0.2);
 
-    /* degradado MUY suave (más puntos intermedios) */
+    /* colores más intensos */
     background-image: 
-        linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
         linear-gradient(135deg, 
-            #3cfb34 0%,
-            #34fbf3 15%,
-            #043cfc 30%,
-            #8304fb 45%,
-            #fb1ca4 60%,
-            #8304fb 75%,
-            #043cfc 85%,
-            #34fbf3 95%,
-            #3cfb34 100%
+            #66ff5a 0%,     /* verde más brillante */
+            #4fffff 15%,    /* cyan más fuerte */
+            #2a6bff 30%,    /* azul más vivo */
+            #a84dff 45%,    /* morado brillante */
+            #ff3ccf 60%,    /* rosa neón */
+            #a84dff 75%,
+            #2a6bff 85%,
+            #4fffff 95%,
+            #66ff5a 100%
         );
 
     background-origin: border-box;
     background-clip: padding-box, border-box;
 
-    /* movimiento suave */
     background-size: 300% 300%;
 
-    /* dos animaciones combinadas */
-    animation: 
-        moverGradiente 8s ease infinite,
-        rotarColores 12s linear infinite;
+    animation: moverGradiente 8s ease infinite,
+               rotarColores 12s linear infinite;
 
     transition: all 0.4s ease;
 }
 
-/*  Movimiento del degradado */
+/* movimiento */
 @keyframes moverGradiente {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/*  Cambio de colores REAL (suave) */
+/* cambio de color */
 @keyframes rotarColores {
-    0%   { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(360deg); }
+    0%   { filter: hue-rotate(0deg) brightness(1.2) saturate(1.4); }
+    100% { filter: hue-rotate(360deg) brightness(1.2) saturate(1.4); }
 }
 
 /* Hover */
 .table-container td .btn-estilizado:hover {
     transform: scale(1.08);
-    box-shadow: 0 0 15px rgba(131, 4, 251, 0.7);
 
-    /* más rápido */
+    /* glow más visible */
+    box-shadow: 
+        0 0 10px #a84dff,
+        0 0 20px #ff3ccf,
+        0 0 30px #4fffff;
+
     animation-duration: 4s, 6s;
 }
 
 /* Active */
 .table-container td .btn-estilizado:active {
     transform: scale(0.95);
-    box-shadow: 0 0 10px rgba(251, 28, 164, 0.8);
 
-    /* aún más intenso */
+    box-shadow: 
+        0 0 10px #ff3ccf,
+        0 0 20px #ff6a3c;
+
     animation-duration: 2s, 3s;
 }
 .table-container{
@@ -126,3 +130,10 @@ td {
      
 }
 /*Fin de la tabla*/
+
+/*Comienzo del aparador*/
+.Aparador {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
