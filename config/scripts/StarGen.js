@@ -74,3 +74,65 @@ document.onmousemove = function(Event) {
 	Follower.style.left = XPos
 	Follower.style.top = YPos
 }
+
+// Funciones principales
+const tipo = document.getElementById("tipo");
+const btnAgregar = document.getElementById("btnAgregar");
+const container = document.getElementById("comboContainer");
+
+let contador = 0;
+const max = 8;
+
+// Evento cambio de tipo
+tipo.addEventListener("change", cambiarTipo);
+
+// Evento botón +
+btnAgregar.addEventListener("click", agregarFila);
+
+// Ejecutar al inicio
+document.addEventListener("DOMContentLoaded", cambiarTipo);
+
+function cambiarTipo() {
+    const valor = tipo.value;
+
+    const keyBox = document.getElementById("keyBox");
+    const textBox = document.getElementById("textBox");
+    const comboBox = document.getElementById("comboBox");
+
+    // Ocultar todo
+    keyBox.classList.add("hidden");
+    textBox.classList.add("hidden");
+    comboBox.classList.add("hidden");
+
+    // Mostrar según selección
+    if (valor === "key") {
+        keyBox.classList.remove("hidden");
+    }
+    else if (valor === "text") {
+        textBox.classList.remove("hidden");
+    }
+    else if (valor === "combo") {
+        comboBox.classList.remove("hidden");
+    }
+}
+
+// Agregar filas dinámicas (máx 8)
+function agregarFila() {
+    if (contador >= max) return;
+
+    contador++;
+
+    const fila = document.createElement("div");
+    fila.classList.add("row");
+
+    fila.innerHTML = `
+        <input type="text" placeholder="Texto">
+        <select>
+            <option>Opción 1</option>
+            <option>Opción 2</option>
+            <option>Opción 3</option>
+        </select>
+    `;
+
+    container.appendChild(fila);
+}

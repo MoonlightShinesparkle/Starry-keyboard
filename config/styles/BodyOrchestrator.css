@@ -120,20 +120,18 @@ td {
 
     box-shadow: 
         0 0 10px #ff3ccf,
-        0 0 20px #ff6a3c;
+        0 0 20px #a84dff;
 
     animation-duration: 2s, 3s;
 }
 .table-container{
-	margin-top: 8%;
+	margin-top: 6%;
 	margin-left: 10%;
      
 }
 /*Fin de la tabla*/
 
 /*Comienzo del aparador*/
-.Aparador {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 20px;
-}
+
+
+/*Fin del aparador*/
