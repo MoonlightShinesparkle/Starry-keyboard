@@ -35,7 +35,13 @@ body ::selection{
 }
 
 .root{
-	margin: 10px;
+	 height: 100%;
+    margin: 0;
+	display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;     /* Centrado vertical */
+    min-height: 100vh;       /* Altura total del viewport (100% de la pantalla) */
+    width: 100%;
 }
 /*Fin de parte de las estrellas*/
 
@@ -44,6 +50,8 @@ td {
   border: 3px solid yellow;
   border-radius: 20px;
   text-align: center;
+  width: 70px;
+  height:70px;	
 }
 
 .table-container td .btn-estilizado{
@@ -51,11 +59,13 @@ td {
 	color: white;
     border-color: white;
     border: 1%;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
 	width: 60px;
-	height:60px;	
+	height:60px;		
 }
 
-
+.table-container{
+	
+}
 /*Fin de la tabla*/
