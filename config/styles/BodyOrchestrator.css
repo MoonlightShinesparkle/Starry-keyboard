@@ -1,3 +1,4 @@
+/*Inicio de parte de las estrellas*/
 :root{
 	--BackgroundWrapperColor: rgba(89, 19, 122, 0.43);
 	--SelectionColor: rgb(103, 19, 136);
@@ -19,20 +20,42 @@ body ::selection{
 	background-color: var(--SelectionColor);
 }
 
-h1{
+.barraPrincipal{
 	text-align: center;
 	background-color: var(--BackgroundWrapperColor);
 	margin-bottom: 10px;
 }
 
-h1,footer{
+.barraPrincipal,.barraFinal{
 	padding: 10px;
 }
 
-footer{
+.barraFinal{
 	background-color: var(--BackgroundWrapperColor);
 }
 
 .root{
 	margin: 10px;
 }
+/*Fin de parte de las estrellas*/
+
+/*Inicio de la tabla*/
+td {
+  border: 3px solid yellow;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.table-container td .btn-estilizado{
+    background-color:transparent; 
+	color: white;
+    border-color: white;
+    border: 1%;
+    border-radius: 5px;
+    cursor: pointer;
+	width: 60px;
+	height:60px;	
+}
+
+
+/*Fin de la tabla*/
