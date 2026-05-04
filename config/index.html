@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="Starry-keyboard\config\styles\icono.ico" type="image/x-icon" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Starry config</title>
     <link rel="stylesheet" href="styles/ConfigStyle.css">
     <link rel="stylesheet" href="styles/BodyOrchestrator.css">
+
 </head>
 <body>
     <div id="estrellas-container">
@@ -24,51 +26,104 @@
             No olvides guardar ;)
         </footer>
     </div>
-    <script src="scripts/StarGen.js"></script>
+
 
 	
    <table class="table-container">
     <tr>
-        <td><button class="btn-estilizado">1</button></td>
-        <td><button class="btn-estilizado">2</button></td>
-        <td><button class="btn-estilizado">3</button></td>
-        <td><button class="btn-estilizado">4</button></td>
-        <td><button class="btn-estilizado">5</button></td>
+        <td><button class="btn-estilizado" id="1">1</button></td>
+        <td><button class="btn-estilizado" id="2">2</button></td>
+        <td><button class="btn-estilizado" id="3">3</button></td>
+        <td><button class="btn-estilizado" id="4">4</button></td>
+        <td><button class="btn-estilizado" id="5">5</button></td>
     </tr>
     <tr>
-        <td><button class="btn-estilizado">6</button></td>
-        <td><button class="btn-estilizado">7</button></td>
-        <td><button class="btn-estilizado">8</button></td>
-        <td><button class="btn-estilizado">9</button></td>
-        <td><button class="btn-estilizado">10</button></td>
+        <td><button class="btn-estilizado" id="6">6</button></td>
+        <td><button class="btn-estilizado" id="7">7</button></td>
+        <td><button class="btn-estilizado" id="8">8</button></td>
+        <td><button class="btn-estilizado" id="9">9</button></td>
+        <td><button class="btn-estilizado" id="10">10</button></td>
     </tr>
     <tr>
-        <td><button class="btn-estilizado">11</button></td>
-        <td><button class="btn-estilizado">12</button></td>
-        <td><button class="btn-estilizado">13</button></td>
-        <td><button class="btn-estilizado">14</button></td>
-        <td><button class="btn-estilizado">15</button></td>
+        <td><button class="btn-estilizado" id="11">11</button></td>
+        <td><button class="btn-estilizado" id="12">12</button></td>
+        <td><button class="btn-estilizado" id="13">13</button></td>
+        <td><button class="btn-estilizado" id="14">14</button></td>
+        <td><button class="btn-estilizado" id="15">15</button></td>
     </tr>
     <tr>
-        <td><button class="btn-estilizado">16</button></td>
-        <td><button class="btn-estilizado">17</button></td>
-        <td><button class="btn-estilizado">18</button></td>
-        <td><button class="btn-estilizado">19</button></td>
-        <td><button class="btn-estilizado">20</button></td>
+        <td><button class="btn-estilizado" id="16">16</button></td>
+        <td><button class="btn-estilizado" id="17">17</button></td>
+        <td><button class="btn-estilizado" id="18">18</button></td>
+        <td><button class="btn-estilizado" id="19">19</button></td>
+        <td><button class="btn-estilizado" id="20">20</button></td>
     </tr>
     <tr>    
-        <td><button class="btn-estilizado">21</button></td>
-        <td><button class="btn-estilizado">22</button></td>
-        <td><button class="btn-estilizado">23</button></td>
-        <td><button class="btn-estilizado">24</button></td>
-        <td><button class="btn-estilizado">25</button></td>    
+        <td><button class="btn-estilizado" id="21">21</button></td>
+        <td><button class="btn-estilizado" id="22">22</button></td>
+        <td><button class="btn-estilizado" id="23">23</button></td>
+        <td><button class="btn-estilizado" id="24">24</button></td>
+        <td><button class="btn-estilizado" id="25">25</button></td>    
     </tr>
 </table> 
 
 
 
+<div class="Aparador-container">
+    
+<label class="titulo">Valor mostrado</label>
 
+<div class="Aparador-wrapper">
+    <button class="flecha izquierda" onclick="mover(-1)">◀</button>
+    
+    <input type="text" id="aparador" class="Aparador" 
+       value="Presiona" readonly>
+    
+    <button class="flecha derecha" onclick="mover(1)">▶</button>
+</div>
+    <!-- Tipo -->
+    <div class="fila-tipo">
+        <span class="label-tipo">Tipo:</span>
+      <select class="combo-tipo" id="tipo">
+        <option value="key" selected>Key</option>
+        <option value="text">Text</option>
+        <option value="combo">Combo</option>
+        </select>
+    </div>
+    <!-- Seleccionador -->
+    <!-- Configuración Key -->
+<div id="key-config" class="fila-key">
+    <span class="label-key">Key:</span>
 
+    <input type="text" class="input-key" maxlength="2" placeholder="00">
 
+    <select class="combo-key">
+        <option value="letters">Letras</option>
+        <option value="numbers">Números</option>
+        <option value="symbols">Símbolos</option>
+        <option value="all">Todo</option>
+    </select>
+</div>
+
+<!-- Configuración Text -->
+<div id="text-config" class="fila-text">
+    <span class="label-text">Texto:</span>
+    <input type="text" class="input-text" placeholder="Escribe aquí...">
+</div>
+
+<!-- Configuración Combo -->
+<div id="combo-config">
+    <span class="label-combo">Combo:</span>
+
+    <div class="combo-row">
+        <div id="combo-keys"></div>
+
+        <div class="botones-combo">
+            <button id="agregar-key" class="btn-mas">+</button>
+            <button id="quitar-key" class="btn-menos">−</button>
+        </div>
+    </div>
+</div>
+    <script src="scripts/StarGen.js"></script>
 </body>
 </html>

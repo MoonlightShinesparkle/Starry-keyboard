@@ -76,63 +76,129 @@ document.onmousemove = function(Event) {
 }
 
 // Funciones principales
+//flechitas
+let posicion = 0;
+
+function mover(direccion) {
+    const input = document.getElementById("aparador");
+
+    if (input.scrollWidth <= input.clientWidth) {
+        return; // no hace nada si cabe completo
+    }
+
+    posicion += direccion * 20; // velocidad más realista en px
+
+    // límites reales de scroll
+    const maxScroll = input.scrollWidth - input.clientWidth;
+
+    if (posicion < 0) posicion = 0;
+    if (posicion > maxScroll) posicion = maxScroll;
+
+    input.scrollLeft = posicion;
+}
+
+
 const tipo = document.getElementById("tipo");
-const btnAgregar = document.getElementById("btnAgregar");
-const container = document.getElementById("comboContainer");
 
-let contador = 0;
-const max = 8;
+const keyConfig = document.getElementById("key-config");
+const textConfig = document.getElementById("text-config");
+const comboConfig = document.getElementById("combo-config");
 
-// Evento cambio de tipo
-tipo.addEventListener("change", cambiarTipo);
+function actualizarVista() {
 
-// Evento botón +
-btnAgregar.addEventListener("click", agregarFila);
+    //  ocultar TODO primero
+    keyConfig.style.display = "none";
+    textConfig.style.display = "none";
+    comboConfig.style.display = "none";
 
-// Ejecutar al inicio
-document.addEventListener("DOMContentLoaded", cambiarTipo);
 
-function cambiarTipo() {
-    const valor = tipo.value;
-
-    const keyBox = document.getElementById("keyBox");
-    const textBox = document.getElementById("textBox");
-    const comboBox = document.getElementById("comboBox");
-
-    // Ocultar todo
-    keyBox.classList.add("hidden");
-    textBox.classList.add("hidden");
-    comboBox.classList.add("hidden");
-
-    // Mostrar según selección
-    if (valor === "key") {
-        keyBox.classList.remove("hidden");
+    // =========================
+    // mostrar key (default)
+    // =========================
+    if (tipo.value === "key") {
+        keyConfig.style.display = "flex";
     }
-    else if (valor === "text") {
-        textBox.classList.remove("hidden");
+
+
+    // =========================
+    // mostrar text
+    // =========================
+    else if (tipo.value === "text") {
+        textConfig.style.display = "flex";
     }
-    else if (valor === "combo") {
-        comboBox.classList.remove("hidden");
+
+
+    // =========================
+    // mostrar combo
+    // =========================
+    else if (tipo.value === "combo") {
+        comboConfig.style.display = "block";
     }
 }
 
-// Agregar filas dinámicas (máx 8)
-function agregarFila() {
-    if (contador >= max) return;
 
-    contador++;
+//  estado inicial (al cargar la página)
+actualizarVista();
 
-    const fila = document.createElement("div");
-    fila.classList.add("row");
+//  cambio dinámico
+tipo.addEventListener("change", actualizarVista);
 
-    fila.innerHTML = `
-        <input type="text" placeholder="Texto">
-        <select>
-            <option>Opción 1</option>
-            <option>Opción 2</option>
-            <option>Opción 3</option>
+//sumar al combo
+const comboContainer = document.getElementById("combo-keys");
+const btnAgregar = document.getElementById("agregar-key");
+const btnQuitar = document.getElementById("quitar-key");
+
+let totalKeys = 0;
+const MIN_KEYS = 2;
+const MAX_KEYS = 8;
+
+// crear un bloque combo
+function crearCombo() {
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("combo-item");
+
+    wrapper.innerHTML = `
+        <input type="text" class="input-combo" maxlength="2" placeholder="00">
+
+        <select class="combo-combo">
+            <option value="letters">Letras</option>
+            <option value="numbers">Números</option>
+            <option value="symbols">Símbolos</option>
+            <option value="all">Todo</option>
         </select>
     `;
 
-    container.appendChild(fila);
+    comboContainer.appendChild(wrapper);
+    totalKeys++;
+    actualizarBotones();
 }
+
+// eliminar último
+function eliminarCombo() {
+    if (totalKeys <= MIN_KEYS) return;
+
+    comboContainer.lastElementChild.remove();
+    totalKeys--;
+    actualizarBotones();
+}
+
+// control de botones
+function actualizarBotones() {
+    // ocultar - si hay mínimo
+    btnQuitar.style.display = (totalKeys <= MIN_KEYS) ? "none" : "inline-block";
+
+    // desactivar + si llega al máximo
+    btnAgregar.disabled = (totalKeys >= MAX_KEYS);
+}
+
+// inicial → 2 combos
+for (let i = 0; i < MIN_KEYS; i++) {
+    crearCombo();
+}
+
+// eventos
+btnAgregar.addEventListener("click", () => {
+    if (totalKeys < MAX_KEYS) crearCombo();
+});
+
+btnQuitar.addEventListener("click", eliminarCombo);

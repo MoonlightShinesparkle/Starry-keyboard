@@ -1,7 +1,7 @@
-/*Inicio de parte de las estrellas*/
 :root{
 	--BackgroundWrapperColor: rgba(89, 19, 122, 0.43);
 	--SelectionColor: rgb(103, 19, 136);
+    
 }
 
 #estrellas-container{
@@ -14,39 +14,64 @@
 	grid-template-rows: auto 1fr auto;
 	min-height: 100vh;
 	min-height: 100svh;
+    
 }
 
 body ::selection{
 	background-color: var(--SelectionColor);
 }
 
-.barraPrincipal{
-	text-align: center;
-	background-color: var(--BackgroundWrapperColor);
-}
-
-.barraPrincipal,.barraFinal{
-	padding: 10px;
-}
-
+/* BARRAS GALÁCTICAS */
+.barraPrincipal,
 .barraFinal{
-	background-color: var(--BackgroundWrapperColor);
+    opacity: 0.7;
+	padding: 10px;
+	text-align: center;
+
+	/* fondo galaxia */
+	background: linear-gradient(
+		90deg,
+		#a020f0,
+		#00bfff,
+		#ff1493,
+        #a020f0,
+		#00bfff,
+		#ff1493
+	);
+
+	/* blur tipo vidrio */
+	backdrop-filter: blur(50px);
+
+	/* borde brillante */
+	border-top: 2px solid rgba(255,255,255,0.2);
+	border-bottom: 2px solid rgba(255,255,255,0.2);
+
+	/* glow */
+	box-shadow: 
+		0 0 10px #a020f0,
+		0 0 10px #00bfff,
+		0 0 15px #ff1493,
+        0 0 5px #a020f0,
+		0 0 10px #00bfff,
+		0 0 15px #ff1493,
+        ;
 }
 
-.root{
-  
-	
-	
-}
 /*Fin de parte de las estrellas*/
 
 /*Inicio de la tabla*/
 td {
-  border: 0px solid yellow;
-  border-radius: 40px;
+  width: 90px;
+  height: 90px;
   text-align: center;
-  width: 100px;
-  height:100px;	
+  border-radius: 50px;
+
+  /* borde degradado */
+  background:
+    linear-gradient(#000, #000) padding-box,
+    linear-gradient(45deg, #a020f0, #00bfff, #ff1493) border-box;
+
+  border: 3px solid transparent;
 }
 
 .table-container td .btn-estilizado {
@@ -58,7 +83,7 @@ td {
     color: white;
     cursor: pointer;
     overflow: hidden;
-
+    font-size: 150%;
     /* menos oscuro para que brillen más */
     background: rgba(0, 0, 0, 0.2);
 
@@ -66,11 +91,11 @@ td {
     background-image: 
         linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
         linear-gradient(135deg, 
-            #66ff5a 0%,     /* verde más brillante */
+            #c8ff00 0%,     /* verde más brillante */
             #4fffff 15%,    /* cyan más fuerte */
             #2a6bff 30%,    /* azul más vivo */
             #a84dff 45%,    /* morado brillante */
-            #ff3ccf 60%,    /* rosa neón */
+            #ff0080 60%,    /* rosa neón */
             #a84dff 75%,
             #2a6bff 85%,
             #4fffff 95%,
@@ -125,13 +150,312 @@ td {
     animation-duration: 2s, 3s;
 }
 .table-container{
-	margin-top: 6%;
-	margin-left: 10%;
+	margin-top: 7%;
+	margin-left: 8%;
      
 }
 /*Fin de la tabla*/
 
 /*Comienzo del aparador*/
+.Aparador-container {
+    position: fixed;       
+    top: 0;
+    right: 0;
 
+    width: 50vw;           
+    height: 100vh;
 
+    padding-top: 73px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: flex-start;
+
+    box-sizing: border-box;
+}
+
+/* Texto arriba */
+.titulo {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+    width: 100%; /* asegura alineación correcta */
+}
+
+/* Display circular */
+.Aparador {
+    width: 280px;
+    height: 280px; /* mismo valor = círculo */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 70px;
+    font-weight: bold;
+    color: #ffffff;
+
+    border-radius: 50%; /* círculo perfecto */
+
+    /* fondo y borde degradado */
+    background:
+        linear-gradient(black, black) padding-box,
+        linear-gradient(45deg, #a020f0, #00bfff, #ff1493) border-box;
+
+    border: 4px solid transparent;
+}
+/*Flechitas*/
+.Aparador-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* flechas estilo galaxia */
+
+.flecha {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+
+    background:
+        linear-gradient(black, black) padding-box,
+        linear-gradient(45deg, #a020f0, #00bfff, #ff1493) border-box;
+}
+
+.flecha:hover {
+    box-shadow: 0 0 10px #ffffff;
+}
+/* fila horizontal */
+
+.fila-tipo {
+    width: 100%;             
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start; /* izquierda */
+}
+
+/* texto "Tipo:" */
+.label-tipo {
+    color: white;
+    font-weight: bold;
+}
+
+/* combo box estilo galaxia */
+.combo-tipo {
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+
+    background:
+        linear-gradient(black, black) padding-box,
+        linear-gradient(45deg, #a020f0, #00bfff, #ff1493) border-box;
+
+    border: 2px solid transparent;
+}
+
+/* Opciones internas */
+.combo-tipo option {
+    background-color: #000000; /* fondo oscuro */
+    color: #00ffcc;           
+}
+
+/*Key mode*/
+.fila-key {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.label-key {
+    color: white;
+    font-weight: bold;
+}
+
+.input-key {
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    background:
+        linear-gradient(black, black) padding-box,
+        linear-gradient(45deg, #a020f0, #00bfff, #ff1493) border-box;
+
+    border: 2px solid transparent;
+}
+.combo-key {
+    
+   padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+
+    background:
+        linear-gradient(black, black) padding-box,
+        linear-gradient(45deg, #a020f0, #00bfff, #ff1493) border-box;
+
+    border: 2px solid transparent;
+}
+
+.combo-key option {
+    background-color: #000000; /* fondo oscuro */
+    color: #00ffcc;  
+}
+/*Text Mode*/
+.fila-text {    
+    display: flex;             
+    justify-content: flex-start;
+    align-items: center;   
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+.label-text {
+    color: white;
+    font-weight: bold;
+}
+
+.input-text {
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    height: 20px;
+    width: 200px;
+    text-align: center;
+    background:
+        linear-gradient(black, black) padding-box,
+        linear-gradient(45deg, #a020f0, #00bfff, #ff1493) border-box;
+
+    border: 2px solid transparent;
+}
+
+/*Combo*/
+.fila-combo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.label-combo {
+    color: white;
+    font-weight: bold;
+}
+
+.input-combo {
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    background:
+        linear-gradient(black, black) padding-box,
+        linear-gradient(45deg, #a020f0, #00bfff, #ff1493) border-box;
+
+    border: 2px solid transparent;
+}
+.combo-combo {
+    
+   padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+
+    background:
+        linear-gradient(black, black) padding-box,
+        linear-gradient(45deg, #a020f0, #00bfff, #ff1493) border-box;
+
+    border: 2px solid transparent;
+}
+
+.combo-combo option {
+    background-color: #000000; /* fondo oscuro */
+    color: #00ffcc;  
+}
+.combo-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    margin-top: 15px;
+}
+
+.botones-combo {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex-shrink: 0; 
+}
+
+.btn-mas {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    margin-top: 3px;
+    background:
+        linear-gradient(black, black) padding-box,
+        linear-gradient(45deg, #a020f0, #00bfff, #ff1493) border-box;
+
+    border: 2px solid transparent;
+}
+
+.btn-mas:hover {
+    box-shadow: 0 0 10px #00bfff;
+}
+.btn-menos {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    margin-top: 13px;
+    background:
+        linear-gradient(black, black) padding-box,
+        linear-gradient(45deg, #ff1493, #00bfff, #a020f0) border-box;
+
+    border: 2px solid transparent;
+}
+
+.btn-menos:hover {
+    box-shadow: 0 0 10px #ff1493;
+}
+#combo-config {
+    display: flex;
+    flex-direction: column;   
+    align-items: flex-start;
+    gap: 10px;
+}
+
+#combo-keys {
+    display: grid;
+    grid-template-columns: repeat(4, max-content); /* 4 por fila */
+    gap: 10px;
+}
+
+.combo-item {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.hidden {
+    display: none;
+}
+#key-config,
+#text-config,
+#combo-config {
+    margin-top: 5%;
+}
 /*Fin del aparador*/
+
