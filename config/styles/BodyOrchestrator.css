@@ -22,8 +22,7 @@ body ::selection{
 }
 
 /* BARRAS GALÁCTICAS */
-.barraPrincipal,
-.barraFinal{
+header, footer{
     opacity: 0.7;
 	padding: 10px;
 	text-align: center;
@@ -61,24 +60,35 @@ body ::selection{
 
 /*Inicio de la tabla*/
 td {
-  width: 90px;
-  height: 90px;
-  text-align: center;
-  border-radius: 50px;
-
-  /* borde degradado */
-  background:
-    linear-gradient(#000, #000) padding-box,
-    linear-gradient(45deg, #a020f0, #00bfff, #ff1493) border-box;
-
-  border: 3px solid transparent;
+    width: 10%;
+    height: 10%;
+    text-align: center;
 }
 
-.table-container td .btn-estilizado {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    border-radius: 40px;
+td div {
+    border-radius: 50%;
+
+    /* borde degradado */
+    background:
+        linear-gradient(#000, #000) padding-box,
+        linear-gradient(45deg, #a020f0, #00bfff, #ff1493) border-box;
+
+    border: 3px solid transparent;
+}
+
+td * {
+    aspect-ratio: 1/1;
+}
+
+.btn-estilizado {
+    display: block;
+    aspect-ratio: 1/1;
+    width: 80%;
+    margin-top: 10%;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
     border: 2px solid transparent;
     color: white;
     cursor: pointer;
@@ -127,7 +137,7 @@ td {
 }
 
 /* Hover */
-.table-container td .btn-estilizado:hover {
+.btn-estilizado:hover {
     transform: scale(1.08);
 
     /* glow más visible */
@@ -140,7 +150,7 @@ td {
 }
 
 /* Active */
-.table-container td .btn-estilizado:active {
+.btn-estilizado:active {
     transform: scale(0.95);
 
     box-shadow: 
@@ -149,24 +159,30 @@ td {
 
     animation-duration: 2s, 3s;
 }
-.table-container{
-	margin-top: 7%;
-	margin-left: 8%;
-     
+
+.table-container table{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 /*Fin de la tabla*/
+
+/* Root orchestrator */
+.root{
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.rootsplit{
+    flex: 1;
+    padding: 1.5%;
+}
 
 /*Comienzo del aparador*/
 .Aparador-container {
-    position: fixed;       
-    top: 0;
-    right: 0;
-
-    width: 50vw;           
-    height: 100vh;
-
-    padding-top: 73px;
-
     display: flex;
     flex-direction: column;
     align-items: flex-start; 
@@ -180,14 +196,25 @@ td {
     margin-bottom: 10px;
     font-weight: bold;
     color: white;
-    text-align: left;
+    text-align: center;
     width: 100%; /* asegura alineación correcta */
+}
+
+/*Flechitas*/
+
+.Aparador-center{
+    display: flex;
+}
+
+.Aparador-center * {
+    flex: 1;
 }
 
 /* Display circular */
 .Aparador {
-    width: 280px;
-    height: 280px; /* mismo valor = círculo */
+    flex:4;
+    width: 100%;
+    aspect-ratio: 1/1;
     text-align: center;
     display: flex;
     align-items: center;
@@ -206,18 +233,24 @@ td {
 
     border: 4px solid transparent;
 }
-/*Flechitas*/
+
 .Aparador-wrapper {
+    flex:6;
+    width: 100%;
     display: flex;
     align-items: center;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
     gap: 10px;
 }
+
 
 /* flechas estilo galaxia */
 
 .flecha {
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    aspect-ratio: 1/1;
     border-radius: 50%;
     border: 2px solid transparent;
     cursor: pointer;
@@ -368,7 +401,7 @@ td {
 }
 .combo-combo {
     
-   padding: 5px 10px;
+    padding: 5px 10px;
     border-radius: 10px;
     color: white;
 
@@ -440,7 +473,7 @@ td {
 
 #combo-keys {
     display: grid;
-    grid-template-columns: repeat(4, max-content); /* 4 por fila */
+    grid-template-columns: repeat(2, max-content); /* 2 feels comfier */
     gap: 10px;
 }
 

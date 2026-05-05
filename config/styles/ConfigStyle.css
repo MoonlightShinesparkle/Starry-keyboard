@@ -10,7 +10,8 @@ body{
 #estrellas-container{
     position: fixed;
     inset :0;
-    overflow: hidden;
+    overflow-y:scroll;
+    overflow-x: hidden;
 }
 .estrella{
     position: absolute;

@@ -8,66 +8,74 @@
     <link rel="stylesheet" href="styles/ConfigStyle.css">
     <link rel="stylesheet" href="styles/BodyOrchestrator.css">
 
+    <script src="scripts/Keycodes.js" defer></script>
 </head>
 <body>
     <div id="estrellas-container">
-        <head>
-            <h1 class="barraPrincipal">
+        <header>
+            <h1>
                 Starry keyboard configuration
             </h1>
-        </head>
+        </header>
         <div class="root">
-            <table class="table-container">
-                <tr>
-                    <td><button class="btn-estilizado" id="1">1</button></td>
-                    <td><button class="btn-estilizado" id="2">2</button></td>
-                    <td><button class="btn-estilizado" id="3">3</button></td>
-                    <td><button class="btn-estilizado" id="4">4</button></td>
-                    <td><button class="btn-estilizado" id="5">5</button></td>
-                </tr>
-                <tr>
-                    <td><button class="btn-estilizado" id="6">6</button></td>
-                    <td><button class="btn-estilizado" id="7">7</button></td>
-                    <td><button class="btn-estilizado" id="8">8</button></td>
-                    <td><button class="btn-estilizado" id="9">9</button></td>
-                    <td><button class="btn-estilizado" id="10">10</button></td>
-                </tr>
-                <tr>
-                    <td><button class="btn-estilizado" id="11">11</button></td>
-                    <td><button class="btn-estilizado" id="12">12</button></td>
-                    <td><button class="btn-estilizado" id="13">13</button></td>
-                    <td><button class="btn-estilizado" id="14">14</button></td>
-                    <td><button class="btn-estilizado" id="15">15</button></td>
-                </tr>
-                <tr>
-                    <td><button class="btn-estilizado" id="16">16</button></td>
-                    <td><button class="btn-estilizado" id="17">17</button></td>
-                    <td><button class="btn-estilizado" id="18">18</button></td>
-                    <td><button class="btn-estilizado" id="19">19</button></td>
-                    <td><button class="btn-estilizado" id="20">20</button></td>
-                </tr>
-                <tr>    
-                    <td><button class="btn-estilizado" id="21">21</button></td>
-                    <td><button class="btn-estilizado" id="22">22</button></td>
-                    <td><button class="btn-estilizado" id="23">23</button></td>
-                    <td><button class="btn-estilizado" id="24">24</button></td>
-                    <td><button class="btn-estilizado" id="25">25</button></td>    
-                </tr>
-            </table> 
-            <div class="Aparador-container">
-                <label class="titulo">Valor mostrado</label>
-
-                <div class="Aparador-wrapper">
-                    <button class="flecha izquierda" onclick="mover(-1)">◀</button>
-                    
-                    <input type="text" id="aparador" class="Aparador" 
-                    value="Presiona" readonly>
-                    
-                    <button class="flecha derecha" onclick="mover(1)">▶</button>
+            <div class="table-container rootsplit">
+                <table>
+                    <tr>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                    </tr>
+                    <tr>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                    </tr>
+                    <tr>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                    </tr>
+                    <tr>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                    </tr>
+                    <tr>    
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>
+                        <td><div><button class="btn-estilizado">A</button></div></td>   
+                    </tr>
+                </table> 
+            </div>
+            <div class="Aparador-container rootsplit">
+                <h2 class="titulo">Selected button</h2>
+                
+                <div class="Aparador-center">
+                    <div></div>
+                    <div class="Aparador-wrapper">
+                        <button class="flecha" onclick="mover(-1)">◀</button>
+                        
+                        <input type="text" id="aparador" class="Aparador" 
+                        value="N/A" readonly>
+                        
+                        <button class="flecha" onclick="mover(1)">▶</button>
+                    </div>
+                    <div></div>
                 </div>
+                
                 <!-- Tipo -->
                 <div class="fila-tipo">
-                    <span class="label-tipo">Tipo:</span>
+                    <span class="label-tipo">Type:</span>
                     <select class="combo-tipo" id="tipo">
                     <option value="key" selected>Key</option>
                     <option value="text">Text</option>
@@ -88,8 +96,8 @@
 
                 <!-- Configuración Text -->
                 <div id="text-config" class="fila-text">
-                    <span class="label-text">Texto:</span>
-                    <input type="text" class="input-text" placeholder="Escribe aquí...">
+                    <span class="label-text">Text:</span>
+                    <input type="text" class="input-text" placeholder="Text...">
                 </div>
 
                 <!-- Configuración Combo -->
@@ -107,8 +115,8 @@
                 </div>
             </div>
         </div>
-        <footer class="barraFinal">
-            No olvides guardar ;)
+        <footer>
+            [Load btn] [Save btn]
         </footer>
     </div>
     <script src="scripts/StarGen.js"></script>
