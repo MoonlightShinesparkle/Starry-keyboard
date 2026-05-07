@@ -62,12 +62,12 @@ def LoadBlocks(Modifiable : list[list[KeyTypes.BaseKey]]):
 		elif BlockType == 0x02:
 			Size : int = EEProm[Ptr+1]
 			Ptr += 2
-			Data = []
+			Data : list = []
 			# Create multiple keypress key and store in array
 			NewKey : KeyTypes.MultipressKey = KeyTypes.MultipressKey()
 			
 			for x in range(Size):
-				Data[x] = EEProm[Ptr]
+				Data.append(EEProm[Ptr])
 				Ptr += 1
 
 			NewKey.Data = Data
